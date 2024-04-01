@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:50 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 16:47:50 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:41:18 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	main(int argc, char **argv)
 		return (ft_printf("error: give one .ber to the program"), 0);
 	game = (t_game *)malloc(sizeof(t_game));
 	game->map.full = ft_reader(argv[1]);
-	
 	if (ft_checker(ft_reader(argv[1])) < 0)
 		return (0);
 	init_variables(game);

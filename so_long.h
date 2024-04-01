@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 16:52:41 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:45:08 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,11 @@
 # define THREE_HEART			"./assets/box/three_heart.xpm"
 
 # define KEYPRESS			02
-# define KEYPRESSMASK		1L<<0
+# define KEYPRESSMASK		(1L<<0)
 # define KEYRELEASE			03
-# define KEYRELEASEMASK		1L<<1
+# define KEYRELEASEMASK		(1L<<1)
 # define DESTROYNOTIFY		17
-# define DESTROYNOTIFYMASK	1L<<17
-
+# define DESTROYNOTIFYMASK	(1L<<17)
 
 typedef struct s_coordinate
 {
