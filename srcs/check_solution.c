@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 15:51:11 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:50:54 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,27 @@ int	*search_p(char **map)
 	return (free (tab), NULL);
 }
 
+// void	backtracking_trap(char **map, int y, int x, int count[2])
+// {
+// 	if (map[y][x] == 'E')
+// 		count[1]--;
+// 	if (map[y][x] == 'C')
+// 		count[0]--;
+// 	map[y][x] = '1';
+// 	if ((map[y][x + 1] != '1' || map[y][x + 1] != 'T')
+// 		&& (count[0] != 0 || count[1] != 0))
+// 		backtracking_trap(map, y, x + 1, count);
+// 	if ((map[y][x - 1] != '1' || map[y][x - 1] != 'T')
+// 		&& (count[0] != 0 || count[1] != 0))
+// 		backtracking_trap(map, y, x - 1, count);
+// 	if ((map[y + 1][x] != '1' || map[y + 1][x] != 'T')
+// 		&& (count[0] != 0 || count[1] != 0))
+// 		backtracking_trap(map, y + 1, x, count);
+// 	if ((map[y - 1][x] != '1' || map[y - 1][x] != 'T')
+// 		&& (count[0] != 0 || count[1] != 0))
+// 		backtracking_trap(map, y - 1, x, count);
+// }
+
 void	backtracking(char **map, int y, int x, int count[2])
 {
 	if (map[y][x] == 'E')
@@ -63,13 +84,17 @@ void	backtracking(char **map, int y, int x, int count[2])
 	if (map[y][x] == 'C')
 		count[0]--;
 	map[y][x] = '1';
-	if (map[y][x + 1] != '1' && (count[0] != 0 || count[1] != 0))
+	if ((map[y][x + 1] != '1' && map[y][x + 1] != 'T')
+		&& (count[0] != 0 || count[1] != 0))
 		backtracking(map, y, x + 1, count);
-	if (map[y][x - 1] != '1' && (count[0] != 0 || count[1] != 0))
+	if ((map[y][x - 1] != '1' && map[y][x - 1] != 'T')
+		&& (count[0] != 0 || count[1] != 0))
 		backtracking(map, y, x - 1, count);
-	if (map[y + 1][x] != '1' && (count[0] != 0 || count[1] != 0))
+	if ((map[y + 1][x] != '1' && map[y + 1][x] != 'T')
+		&& (count[0] != 0 || count[1] != 0))
 		backtracking(map, y + 1, x, count);
-	if (map[y - 1][x] != '1' && (count[0] != 0 || count[1] != 0))
+	if ((map[y - 1][x] != '1' && map[y - 1][x] != 'T')
+		&& (count[0] != 0 || count[1] != 0))
 		backtracking(map, y - 1, x, count);
 }
 
