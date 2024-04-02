@@ -6,7 +6,7 @@
 #    By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 11:34:08 by agerbaud          #+#    #+#              #
-#    Updated: 2024/04/01 15:35:51 by agerbaud         ###   ########.fr        #
+#    Updated: 2024/04/02 16:18:04 by agerbaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,23 +40,19 @@ OBJECTS = $(SRCS:.c=.o)
 DEPENDENCIES = $(SRCS:.c=.d)
 
 
-all: $(NAME)
+all: libft mlx $(NAME)
 
-run:	$(NAME)
+run:	all
 		./$(NAME) map.ber
-
-$(LIBFTDIR):
-	$(MAKE) -C $@
-
-$(MLX_DIR):
-	$(MAKE) -C $@ all
-
-$(LIBFT): $(LIBFTDIR)
-
-$(MLX): $(MLX_DIR)
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX)
 	$(CC) -o $@ $^ $(LFLAGS)
+
+libft:
+	$(MAKE) -C $(LIBFTDIR)
+
+mlx:
+	$(MAKE) -C $(MLX_DIR) all
 
 -include $(DEPENDENCIES)
 
@@ -74,5 +70,5 @@ fclean: clean
 
 re: fclean all
 
+.PHONY: all clean fclean re libft mlx
 
-.PHONY: all clean fclean re $(LIBFTDIR) $(MLX_DIR)

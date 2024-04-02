@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 17:45:08 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:27:55 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@
 # define THREE_HEART			"./assets/box/three_heart.xpm"
 
 # define KEYPRESS			02
-# define KEYPRESSMASK		(1L<<0)
+# define KEYPRESSMASK		0
 # define KEYRELEASE			03
-# define KEYRELEASEMASK		(1L<<1)
+# define KEYRELEASEMASK		1
 # define DESTROYNOTIFY		17
-# define DESTROYNOTIFYMASK	(1L<<17)
+# define DESTROYNOTIFYMASK	17
 
 typedef struct s_coordinate
 {
@@ -177,7 +177,6 @@ typedef struct s_game
 
 /*GAME*/
 t_image	put_img_to_img(t_image src, t_image dst, int x, int y);
-void	consumables(t_game *game);
 void	render_map(t_game *game);
 char	**ft_reader(char *file);
 void	render_map(t_game *game);
@@ -186,11 +185,11 @@ int		keyrelease(int keycode, t_game *param);
 int		actions(t_game *param);
 t_image	put_player(t_image src, t_image dst, int x, int y);
 int		destroyer(t_game *game);
-void	consumables(t_game *game);
-void	check_exit(t_game *game);
+void	consumables(t_game *game, int x, int y);
+void	check_exit(t_game *game, int x, int y);
 void	init_frame(t_game *game);
 void	put_part_map(t_image src, t_image dst, int x, int y);
-void	trap(t_game *game);
+void	trap(t_game *game, int *x, int *y);
 int		check_next_move(t_game *game, t_coordinate coord, int move);
 t_image	choose_player1(t_game *game);
 t_image	choose_player2(t_game *game);

@@ -6,19 +6,14 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:52:54 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/03/29 00:15:39 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:29:08 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	check_exit(t_game *game)
+void	check_exit(t_game *game, int x, int y)
 {
-	int	x;
-	int	y;
-
-	x = game->map.player.x;
-	y = game->map.player.y;
 	if (game->map.full[(y + 63) / 64][x / 64] == 'O')
 		y += 63;
 	else if (game->map.full[y / 64][(x + 63) / 64] == 'O')
@@ -29,7 +24,10 @@ void	check_exit(t_game *game)
 		y += 63;
 	}
 	if (game->map.full[y / 64][x / 64] == 'O')
+	{
+		ft_putstr_fd("\nYou won !", 1);
 		destroyer(game);
+	}
 }
 
 void	search_exit(char **map, int **exit)
@@ -72,42 +70,35 @@ void	exit_opener(t_game *game)
 	}
 }
 
-void	trap(t_game *game)
+void	trap(t_game *game, int *x, int *y)
 {
-	int	x;
-	int	y;
-
-	x = game->map.player.x;
-	y = game->map.player.y;
-	if (game->map.full[(y + 63) / 64][x / 64] == 'T')
-		y += 63;
-	else if (game->map.full[y / 64][(x + 63) / 64] == 'T')
-		x += 63;
-	else if (game->map.full[(y + 63) / 64][(x + 63) / 64] == 'T')
+	if (game->map.full[(*y + 63) / 64][*x / 64] == 'T')
+		*y += 63;
+	else if (game->map.full[*y / 64][(*x + 63) / 64] == 'T')
+		*x += 63;
+	else if (game->map.full[(*y + 63) / 64][(*x + 63) / 64] == 'T')
 	{
-		x += 63;
-		y += 63;
+		*x += 63;
+		*y += 63;
 	}
-	if (game->map.full[y / 64][x / 64] == 'T')
+	if (game->map.full[*y / 64][*x / 64] == 'T')
 	{
 		if (game->heart - 1 == 0)
+		{
+			ft_putstr_fd("\nYou lose...", 1);
 			destroyer(game);
+		}
 		else
 		{
-			game->map.player.x = game->map.player.x_start;
-			game->map.player.y = game->map.player.y_start;
+			*x = game->map.player.x_start;
+			*y = game->map.player.y_start;
 			game->heart--;
 		}
 	}
 }
 
-void	consumables(t_game *game)
+void	consumables(t_game *game, int x, int y)
 {
-	int	x;
-	int	y;
-
-	x = game->map.player.x;
-	y = game->map.player.y;
 	if (game->map.full[(y + 63) / 64][x / 64] == 'C')
 		y += 63;
 	else if (game->map.full[y / 64][(x + 63) / 64] == 'C')

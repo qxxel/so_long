@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:50 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 17:41:18 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:28:03 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	update_map(t_game *param)
 	x = param->map.player.x;
 	y = param->map.player.y;
 	actions(param);
-	trap(param);
+	trap(param, &param->map.player.x, &param->map.player.y);
 	if (!param->open)
-		consumables(param);
+		consumables(param, x, y);
 	else
-		check_exit(param);
+		check_exit(param, x, y);
 	init_frame(param);
 	mlx_put_image_to_window(param->mlx_ptr, param->win_ptr,
 		param->frame.ptr, 0, 0);
@@ -55,24 +55,26 @@ int	check_extension(char *str)
 
 int	main(int argc, char **argv)
 {
-	t_game	*game;
+	t_game	game;
 
 	if (argc != 2 || check_extension(argv[1]) == -1)
 		return (ft_printf("error: give one .ber to the program"), 0);
-	game = (t_game *)malloc(sizeof(t_game));
-	game->map.full = ft_reader(argv[1]);
+	game.map.full = ft_reader(argv[1]);
 	if (ft_checker(ft_reader(argv[1])) < 0)
 		return (0);
-	init_variables(game);
-	init_mlx_game(game);
-	init_sprites(game);
-	render_map(game);
-	init_frame(game);
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-		game->frame.ptr, 0, 0);
-	mlx_hook(game->win_ptr, KEYPRESS, KEYPRESSMASK, keypress, game);
-	mlx_hook(game->win_ptr, KEYRELEASE, KEYRELEASEMASK, keyrelease, game);
-	mlx_hook(game->win_ptr, DESTROYNOTIFY, DESTROYNOTIFYMASK, destroyer, game);
-	mlx_loop_hook(game->mlx_ptr, update_map, game);
-	mlx_loop(game->mlx_ptr);
+	init_variables(&game);
+	init_mlx_game(&game);
+	init_sprites(&game);
+	render_map(&game);
+	init_frame(&game);
+	ft_putchar_fd('0', 1);
+	mlx_put_image_to_window(game.mlx_ptr, game.win_ptr,
+		game.frame.ptr, 0, 0);
+	mlx_string_put(game.mlx_ptr, game.win_ptr, 12, 23, 0x111111, "0 moves");
+	mlx_hook(game.win_ptr, KEYPRESS, 1L << KEYPRESSMASK, keypress, &game);
+	mlx_hook(game.win_ptr, KEYRELEASE, 1L << KEYRELEASEMASK, keyrelease, &game);
+	mlx_hook(game.win_ptr, DESTROYNOTIFY, 1L << DESTROYNOTIFYMASK, destroyer,
+		&game);
+	mlx_loop_hook(game.mlx_ptr, update_map, &game);
+	mlx_loop(game.mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:06:45 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 16:54:43 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:12:13 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,11 @@ int	destroyer(t_game *game)
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	image_destroyer(game);
 	player_destroyer(game, &game->player);
-	mlx_destroy_display(game->mlx_ptr);
 	mlx_loop_end(game->mlx_ptr);
+	mlx_destroy_display(game->mlx_ptr);
 	if (game->count > 0)
 		ft_printf("\n");
 	free_tab(game->map.full);
-	free(game);
 	free(game->mlx_ptr);
 	exit(0);
 	return (0);
