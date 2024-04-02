@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:51:55 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/03/28 19:21:25 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:57:25 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,16 @@ int	keypress(int keycode, t_game *param)
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
 		param->right = 1;
 	if (keycode == KEY_Q || keycode == KEY_ESC)
+	{
+		ft_putstr_fd("\nWhy did you ragequit ??", 1);
 		destroyer(param);
+	}
+	return (0);
+}
+
+int	close_window(t_game *param)
+{
+	ft_putstr_fd("\nWhy did you ragequit ??", 1);
+	destroyer(param);
 	return (0);
 }

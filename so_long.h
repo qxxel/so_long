@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/02 17:27:55 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:56:57 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ int		check_next_move(t_game *game, t_coordinate coord, int move);
 t_image	choose_player1(t_game *game);
 t_image	choose_player2(t_game *game);
 void	free_tab(char **map);
+int		close_window(t_game *param);
 
 /*CHECK MAP*/
 int		ft_check_size(char **map);

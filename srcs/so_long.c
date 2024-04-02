@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:50 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/02 17:28:03 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:56:45 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int argc, char **argv)
 	mlx_string_put(game.mlx_ptr, game.win_ptr, 12, 23, 0x111111, "0 moves");
 	mlx_hook(game.win_ptr, KEYPRESS, 1L << KEYPRESSMASK, keypress, &game);
 	mlx_hook(game.win_ptr, KEYRELEASE, 1L << KEYRELEASEMASK, keyrelease, &game);
-	mlx_hook(game.win_ptr, DESTROYNOTIFY, 1L << DESTROYNOTIFYMASK, destroyer,
+	mlx_hook(game.win_ptr, DESTROYNOTIFY, 1L << DESTROYNOTIFYMASK, close_window,
 		&game);
 	mlx_loop_hook(game.mlx_ptr, update_map, &game);
 	mlx_loop(game.mlx_ptr);
