@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:43:46 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 16:51:02 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:08:56 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	count_lines(char *file)
 
 	count = 1;
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (perror(file), -1);
 	while (read(fd, b, 1))
 	{
 		if (b[0] == '\n')
@@ -46,17 +48,20 @@ char	**ft_reader(char *file)
 	int		i;
 	char	**map;
 
-	i = 0;
+	i = -1;
 	lines = count_lines(file);
+	if (lines < 0)
+		return (NULL);
 	map = (char **)malloc(sizeof(char *) * lines);
+	if (!map)
+		return (NULL);
 	fd = open(file, O_RDONLY);
-	while (i < lines - 1)
+	while (++i < lines - 1)
 	{
 		map[i] = get_next_line(fd);
 		if (map[i] == NULL)
 			return (free_gnl_error(map, i), NULL);
 		map[i][ft_strlen(map[i]) - 1] = 0;
-		i++;
 	}
 	map[i] = NULL;
 	close(fd);

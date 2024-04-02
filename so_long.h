@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/02 17:56:57 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:05:20 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
 

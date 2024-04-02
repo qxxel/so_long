@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:37:58 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/01 16:52:23 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:11:18 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_checker(char **map)
 {
+	if (!map)
+		return (-1);
 	if (map[0] == NULL)
 		return (ft_printf("error: empty map or read error"), -1);
 	if (ft_check_size(map) < 0)
