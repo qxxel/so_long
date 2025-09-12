@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   choose_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:45:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/03/29 16:46:05 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:52:48 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../includes/so_long.h"
 
 t_image	choose_player1(t_game *game)
 {

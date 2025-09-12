@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_solution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:17:50 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/02 17:50:54 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:52:48 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../includes/so_long.h"
 
 int	count_c(char **map)
 {

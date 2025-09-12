@@ -1,3 +1,7 @@
 so_long
 *.o
 *.d
+.build
+libft/libft.a
+libft/.build/
+.vscode

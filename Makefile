@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 11:34:08 by agerbaud          #+#    #+#              #
-#    Updated: 2024/04/02 16:18:04 by agerbaud         ###   ########.fr        #
+#    Updated: 2025/09/12 12:14:01 by agerbaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,42 +33,52 @@ SRCS =	srcs/check_elements.c	\
 		srcs/put_part_map.c		\
 		srcs/choose_player.c
 
-CC = cc -Wall -Wextra -Werror -MMD -g3 -D BONUS=1
+CC = cc 
+
+CFLAGS = -Wall -Wextra -Werror -MMD -g3 -D BONUS=1
 LFLAGS = -lXext -lX11 -lm
 
-OBJECTS = $(SRCS:.c=.o)
-DEPENDENCIES = $(SRCS:.c=.d)
+BUILD_DIR = .build
+
+OBJECTS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
+DEPENDENCIES = $(SRCS:%.c=$(BUILD_DIR)/%.d)
+
+LIBFT_SRC = $(wildcard $(LIBFTDIR)/*.c) $(wildcard $(LIBFTDIR)/**/*.c)
+LIBFT_HDR = $(wildcard $(LIBFTDIR)/*.h) $(wildcard $(LIBFTDIR)/**/*.h)
+LIBFT_DEPS = $(LIBFT_SRC) $(LIBFT_HDR)
 
 
-all: libft mlx $(NAME)
+all: mlx $(NAME)
 
-run:	all
-		./$(NAME) map.ber
+$(LIBFT): $(LIBFT_DEPS)
+	$(MAKE) -C $(LIBFTDIR)
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX)
-	$(CC) -o $@ $^ $(LFLAGS)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX) -o $@
 
-libft:
-	$(MAKE) -C $(LIBFTDIR)
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 
 mlx:
 	$(MAKE) -C $(MLX_DIR) all
 
+
+
 -include $(DEPENDENCIES)
 
-%.o: %.c
-	$(CC) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJECTS) $(DEPENDENCIES)
-	$(MAKE) -C $(LIBFTDIR) $@
-	$(MAKE) -C $(MLX_DIR) $@
+	$(RM) -r $(BUILD_DIR)
+	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) -C $(LIBFTDIR) $@
+	$(MAKE) -C $(MLX_DIR) $^
 
 re: fclean all
 
-.PHONY: all clean fclean re libft mlx
 
+.PHONY: all clean fclean re mlx
