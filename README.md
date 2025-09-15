@@ -25,13 +25,13 @@ It's a 2D game, where the goal is collect collectibles and reach the exit.
 
 ## ✨ Features
 
-✅ Take and display a map given as argument `.ber`
-✅ Player movements (WASD or directional arrows)
-✅ Collisions management
-✅ Collection of objects
-✅ Exit detection
-✅ Health system with traps
-✅ Animated sprites 
+✅ Take and display a map given as argument `.ber`  
+✅ Player movements (WASD or directional arrows)  
+✅ Collisions management  
+✅ Collection of objects  
+✅ Exit detection  
+✅ Health system with traps  
+✅ Animated sprites
 
 ---
 
@@ -85,9 +85,9 @@ Exemple of a map `.ber`:
 
 **Comming soon...**
 
-![exemple1]()
-![exemple2]()
-![exemple3]()
+![exemple1]()  
+![exemple2]()  
+![exemple3]()  
 
 ## 📂 Directories structure
 
