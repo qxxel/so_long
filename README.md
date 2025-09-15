@@ -1,32 +1,109 @@
-# Hi 
-Its me:
-* Axel
-* 19 ans
-* 42 student
+# so_long
+![42 Project](https://img.shields.io/badge/42-Project-blue)
+![Language](https://img.shields.io/badge/C-0E7FC0?logo=c)
 
-## Sommaire
+---
 
-* [Picture](#picture)
-* [Github](#github)
-* [1](#1)
-* [2](#2)
-* [2.1](#2.1)
+## 📌 Summary
+- [About](#about)
+- [Features](#features)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Exemples](#exemples)
+- [Directories structure](#directories-structure)
+- [Ressources](#ressources)
+- [Author](#author)
 
-## Picture
+---
 
-![](./assets/README/agerbaud.jpg)
+## 📖 About
 
-## Github
+**so_long** is a project of 42 school.
+It's a 2D game, where the goal is collect collectibles and reach the exit.
 
-This is my [github](https://github.com/qxxel)
+---
 
-## 1
+## ✨ Features
 
-1ere fois
+✅ Take and display a map given as argument `.ber`
+✅ Player movements (WASD or directional arrows)
+✅ Collisions management
+✅ Collection of objects
+✅ Exit detection
+✅ Health system with traps
+✅ Animated sprites 
 
-## 2
+---
 
-2e fois
+## ⚙️ Installation
 
-### 2.1
-2.1e fois
+**1. Clone the repository**
+```bash
+git clone git@github.com:qxxel/so_long.git;
+cd so_long
+```
+
+**2. Compile the project**
+```bash
+make
+```
+
+---
+
+## 🕹️ Utilisation
+
+**1. Build your own map `.ber` or use those provited**
+
+A valid map is rectangular and closed, with, at least, a path the go through every collectibles and the exit from the spawn.
+
+The file il build like this:
+- 1 = `wall`
+- 0 = `floor`
+- P = `player spawn`
+- C = `collectible`
+- E = `exit`
+- T = `trap`
+
+Exemple of a map `.ber`:
+```
+11111111
+1P0000C1
+1T111101
+1C0000E1
+11111111
+```
+
+**2. Lauch the program**
+
+```bash
+./so_long map.ber
+```
+
+---
+
+## 📸 Exemples
+
+**Comming soon...**
+
+![exemple1]()
+![exemple2]()
+![exemple3]()
+
+## 📂 Directories structure
+
+```plaintext
+📂 so_long
+ ┣ 📂 assets            → sprites
+ ┣ 📂 includes          → headers files (.h)
+ ┣ 📂 libft             → my own C library
+ ┣ 📂 maps              → test maps
+ ┣ 📂 minilibx-linux    → linux graphical library (42 ressource)
+ ┣ 📂 srcs              → sources files (.c)
+ ┣ Makefile
+ ┗ README.md
+```
+
+## 👤 Author
+
+* Axel – [GitHub](https://gitub.com/qxxel)
+* 42 student - login: *agerbaud*
