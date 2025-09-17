@@ -11,11 +11,11 @@
 - [Utilisation](#utilisation)
 - [Exemples](#exemples)
 - [Directories structure](#directories-structure)
-- [Ressources](#ressources)
 - [Author](#author)
 
 ---
 
+<a id="about"></a>
 ## 📖 About
 
 **so_long** is a project of 42 school.
@@ -23,6 +23,7 @@ It's a 2D game, where the goal is collect collectibles and reach the exit.
 
 ---
 
+<a id="features"></a>
 ## ✨ Features
 
 ✅ Take and display a map given as argument `.ber`  
@@ -35,6 +36,7 @@ It's a 2D game, where the goal is collect collectibles and reach the exit.
 
 ---
 
+<a id="installation"></a>
 ## ⚙️ Installation
 
 **1. Clone the repository**
@@ -50,6 +52,7 @@ make
 
 ---
 
+<a id="utilisation"></a>
 ## 🕹️ Utilisation
 
 **1. Build your own map `.ber` or use those provited**
@@ -81,6 +84,7 @@ Exemple of a map `.ber`:
 
 ---
 
+<a id="exemples"></a>
 ## 📸 Exemples
 
 **Comming soon...**
@@ -89,6 +93,7 @@ Exemple of a map `.ber`:
 ![exemple2]()  
 ![exemple3]()  
 
+<a id="directories-structure"></a>
 ## 📂 Directories structure
 
 ```plaintext
@@ -103,6 +108,7 @@ Exemple of a map `.ber`:
  ┗ README.md
 ```
 
+<a id="author"></a>
 ## 👤 Author
 
 * Axel – [GitHub](https://gitub.com/qxxel)
