@@ -3,81 +3,73 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+         #
+#    By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 12:34:17 by agerbaud          #+#    #+#              #
-#    Updated: 2025/09/12 12:16:51 by agerbaud         ###   ########.fr        #
+#    Updated: 2024/03/28 16:51:26 by agerbaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-INCLUDE = includes/libft.h
-SRCS =	srcs/ft_isalpha.c						\
-		srcs/ft_isdigit.c						\
-		srcs/ft_isalnum.c						\
-		srcs/ft_isascii.c						\
-		srcs/ft_isdir.c							\
-		srcs/ft_isprint.c						\
-		srcs/ft_strlen.c						\
-		srcs/ft_memset.c						\
-		srcs/ft_bzero.c							\
-		srcs/ft_memcpy.c						\
-		srcs/ft_memmove.c						\
-		srcs/ft_strlcpy.c						\
-		srcs/ft_strlcat.c						\
-		srcs/ft_toupper.c						\
-		srcs/ft_tolower.c						\
-		srcs/ft_strchr.c						\
-		srcs/ft_strrchr.c						\
-		srcs/ft_strncmp.c						\
-		srcs/ft_memchr.c						\
-		srcs/ft_memcmp.c						\
-		srcs/ft_strnstr.c						\
-		srcs/ft_atoi.c							\
-		srcs/ft_calloc.c						\
-		srcs/ft_strdup.c						\
-		srcs/ft_substr.c						\
-		srcs/ft_strjoin.c						\
-		srcs/ft_strtrim.c						\
-		srcs/ft_split.c							\
-		srcs/ft_itoa.c							\
-		srcs/ft_strmapi.c						\
-		srcs/ft_striteri.c						\
-		srcs/ft_perror.c						\
-		srcs/ft_putchar_fd.c					\
-		srcs/ft_putstr_fd.c						\
-		srcs/ft_putendl_fd.c					\
-		srcs/ft_putnbr_fd.c						\
-		srcs/get_next_line.c					\
-		srcs/get_next_line_utils.c				\
-		srcs/get_next_line_utils.c				\
-		srcs/ft_tablen.c						\
-		srcs/ft_printf/ft_printf.c 				\
-		srcs/ft_printf/pf_puthexa.c				\
-		srcs/ft_printf/pf_putchar_fd.c			\
-		srcs/ft_printf/pf_putnbr_fd.c			\
-		srcs/ft_printf/pf_putnbr_unsigned_fd.c	\
-		srcs/ft_printf/pf_putpointer.c			\
-		srcs/ft_printf/pf_putstr_fd.c			\
-		srcs/ft_printf/pf_strlen.c				\
-		srcs/bonus/ft_lstnew_bonus.c			\
-		srcs/bonus/ft_lstadd_front_bonus.c		\
-		srcs/bonus/ft_lstsize_bonus.c			\
-		srcs/bonus/ft_lstlast_bonus.c			\
-		srcs/bonus/ft_lstadd_back_bonus.c		\
-		srcs/bonus/ft_lstdelone_bonus.c			\
-		srcs/bonus/ft_lstclear_bonus.c			\
-		srcs/bonus/ft_lstiter_bonus.c			\
-		srcs/bonus/ft_lstmap_bonus.c
+INCLUDE = libft.h
+SRCS =	checker/ft_isalpha.c				\
+		checker/ft_isdigit.c				\
+		checker/ft_isalnum.c				\
+		checker/ft_isascii.c				\
+		checker/ft_isprint.c				\
+		str/ft_strlen.c						\
+		str/ft_strlcpy.c					\
+		str/ft_strlcat.c					\
+		str/ft_strchr.c						\
+		str/ft_strrchr.c					\
+		str/ft_strncmp.c					\
+		str/ft_strtrim.c					\
+		str/ft_striteri.c					\
+		str/ft_strmapi.c					\
+		str/ft_strnstr.c					\
+		str/ft_strdup.c						\
+		str/ft_strjoin.c					\
+		str/ft_substr.c						\
+		put/ft_putchar_fd.c					\
+		put/ft_putstr_fd.c					\
+		put/ft_putendl_fd.c					\
+		put/ft_putnbr_fd.c					\
+		mem/ft_memset.c						\
+		mem/ft_memchr.c						\
+		mem/ft_memcpy.c						\
+		mem/ft_memcmp.c						\
+		mem/ft_memmove.c					\
+		lst/ft_lstadd_back.c				\
+		lst/ft_lstadd_front.c				\
+		lst/ft_lstclear.c					\
+		lst/ft_lstdelone.c					\
+		lst/ft_lstiter.c					\
+		lst/ft_lstlast.c					\
+		lst/ft_lstmap.c						\
+		lst/ft_lstnew.c						\
+		lst/ft_lstsize.c					\
+		others/ft_toupper.c					\
+		others/ft_tolower.c					\
+		others/ft_bzero.c					\
+		others/ft_atoi.c					\
+		others/ft_calloc.c					\
+		others/ft_split.c					\
+		others/ft_itoa.c					\
+		others/ft_tablen.c					\
+		ft_printf/ft_printf.c				\
+		ft_printf/ft_putchar_pf.c			\
+		ft_printf/ft_puthexa_pf.c			\
+		ft_printf/ft_putnbr_pf.c			\
+		ft_printf/ft_putnbr_unsigned_pf.c	\
+		ft_printf/ft_putpointer_pf.c		\
+		ft_printf/ft_putstr_pf.c			\
+		get_next_line/get_next_line_utils.c	\
+		get_next_line/get_next_line.c		\
 
-BUILD_DIR = .build
+CC = cc -Wall -Wextra -Werror -MMD -g3
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD
-RF = -rf
-
-OBJECTS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
-DEPENDANCIES = $(SRCS:%.c=$(BUILD_DIR)/%.d)
+OBJECTS = $(SRCS:.c=.o)
+DEPENDANCIES = $(SRCS:.c=.d)
 
 
 all: $(NAME)
@@ -87,23 +79,18 @@ $(NAME): $(OBJECTS)
 
 -include $(DEPENDANCIES)
 
-$(BUILD_DIR)/%.o: %.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
 
+%.o: %.c
+	$(CC) -o $@ -c $<
 
 
 clean:
-	$(RM) $(RF) $(BUILD_DIR)
+	$(RM) $(OBJECTS) $(DEPENDANCIES)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
 
-
-.PHONY: all clean fclean re so
+.PHONY: all bonus clean fclean re

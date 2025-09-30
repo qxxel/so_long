@@ -54,7 +54,7 @@ $(LIBFT): $(LIBFT_DEPS)
 	$(MAKE) -C $(LIBFTDIR)
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX) -o $@
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX) $(LFLAGS) -o $@
 
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)

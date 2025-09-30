@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:53 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:54:46 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:05:20 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "../libft/includes/libft.h"
+# include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
 # ifndef BONUS
@@ -40,44 +40,44 @@
 # define RIGHT			3
 # define BACK			4
 
-# define FLOOR					"../assets/map/grass.xpm"
-# define BUSH					"../assets/map/bush.xpm"
-# define WATER					"../assets/map/water.xpm"
-# define WATER_R				"../assets/map/water_bottom.xpm"
-# define WATER_L				"../assets/map/water_left.xpm"
-# define WATER_D				"../assets/map/water_right.xpm"
-# define WATER_T				"../assets/map/water_top.xpm"
-# define WATER_TR				"../assets/map/water_top_right+.xpm"
-# define WATER_TL				"../assets/map/water_top_left+.xpm"
-# define WATER_DR				"../assets/map/water_bottom_right+.xpm"
-# define WATER_DL				"../assets/map/water_bottom_left+.xpm"
-# define GEM					"../assets/map/gem.xpm"
-# define PLAYER_FRONT1			"../assets/duck/front1.xpm"
-# define PLAYER_FRONT2			"../assets/duck/front2.xpm"
-# define PLAYER_FRONT_RIGHT1	"../assets/duck/front_right1.xpm"
-# define PLAYER_FRONT_RIGHT2	"../assets/duck/front_right2.xpm"
-# define PLAYER_FRONT_LEFT1		"../assets/duck/front_left1.xpm"
-# define PLAYER_FRONT_LEFT2		"../assets/duck/front_left2.xpm"
-# define PLAYER_IDLE			"../assets/duck/idle.xpm"
-# define PLAYER_LEFT1			"../assets/duck/left1.xpm"
-# define PLAYER_LEFT2			"../assets/duck/left2.xpm"
-# define PLAYER_RIGHT1			"../assets/duck/right1.xpm"
-# define PLAYER_RIGHT2			"../assets/duck/right2.xpm"
-# define PLAYER_BACK1			"../assets/duck/back1.xpm"
-# define PLAYER_BACK2			"../assets/duck/back2.xpm"
-# define PLAYER_BACK_RIGHT1		"../assets/duck/back_right1.xpm"
-# define PLAYER_BACK_RIGHT2		"../assets/duck/back_right2.xpm"
-# define PLAYER_BACK_LEFT1		"../assets/duck/back_left1.xpm"
-# define PLAYER_BACK_LEFT2		"../assets/duck/back_left2.xpm"
-# define OPEN_EXIT				"../assets/map/exit_open.xpm"
-# define EXIT_CLOSED			"../assets/map/exit_closed.xpm"
-# define TRAP					"../assets/map/trap.xpm"
-# define BOX_CENTER				"../assets/box/center.xpm"
-# define BOX_LEFT				"../assets/box/left.xpm"
-# define BOX_RIGHT				"../assets/box/right.xpm"
-# define ONE_HEART				"../assets/box/one_heart.xpm"
-# define TWO_HEART				"../assets/box/two_heart.xpm"
-# define THREE_HEART			"../assets/box/three_heart.xpm"
+# define FLOOR					"./assets/map/grass.xpm"
+# define BUSH					"./assets/map/bush.xpm"
+# define WATER					"./assets/map/water.xpm"
+# define WATER_R				"./assets/map/water_bottom.xpm"
+# define WATER_L				"./assets/map/water_left.xpm"
+# define WATER_D				"./assets/map/water_right.xpm"
+# define WATER_T				"./assets/map/water_top.xpm"
+# define WATER_TR				"./assets/map/water_top_right+.xpm"
+# define WATER_TL				"./assets/map/water_top_left+.xpm"
+# define WATER_DR				"./assets/map/water_bottom_right+.xpm"
+# define WATER_DL				"./assets/map/water_bottom_left+.xpm"
+# define GEM					"./assets/map/gem.xpm"
+# define PLAYER_FRONT1			"./assets/duck/front1.xpm"
+# define PLAYER_FRONT2			"./assets/duck/front2.xpm"
+# define PLAYER_FRONT_RIGHT1	"./assets/duck/front_right1.xpm"
+# define PLAYER_FRONT_RIGHT2	"./assets/duck/front_right2.xpm"
+# define PLAYER_FRONT_LEFT1		"./assets/duck/front_left1.xpm"
+# define PLAYER_FRONT_LEFT2		"./assets/duck/front_left2.xpm"
+# define PLAYER_IDLE			"./assets/duck/idle.xpm"
+# define PLAYER_LEFT1			"./assets/duck/left1.xpm"
+# define PLAYER_LEFT2			"./assets/duck/left2.xpm"
+# define PLAYER_RIGHT1			"./assets/duck/right1.xpm"
+# define PLAYER_RIGHT2			"./assets/duck/right2.xpm"
+# define PLAYER_BACK1			"./assets/duck/back1.xpm"
+# define PLAYER_BACK2			"./assets/duck/back2.xpm"
+# define PLAYER_BACK_RIGHT1		"./assets/duck/back_right1.xpm"
+# define PLAYER_BACK_RIGHT2		"./assets/duck/back_right2.xpm"
+# define PLAYER_BACK_LEFT1		"./assets/duck/back_left1.xpm"
+# define PLAYER_BACK_LEFT2		"./assets/duck/back_left2.xpm"
+# define OPEN_EXIT				"./assets/map/exit_open.xpm"
+# define EXIT_CLOSED			"./assets/map/exit_closed.xpm"
+# define TRAP					"./assets/map/trap.xpm"
+# define BOX_CENTER				"./assets/box/center.xpm"
+# define BOX_LEFT				"./assets/box/left.xpm"
+# define BOX_RIGHT				"./assets/box/right.xpm"
+# define ONE_HEART				"./assets/box/one_heart.xpm"
+# define TWO_HEART				"./assets/box/two_heart.xpm"
+# define THREE_HEART			"./assets/box/three_heart.xpm"
 
 # define KEYPRESS			02
 # define KEYPRESSMASK		0

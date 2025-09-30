@@ -89,9 +89,9 @@ Exemple of a map `.ber`:
 
 **Comming soon...**
 
-![exemple1]()  
-![exemple2]()  
-![exemple3]()  
+![exemple1](./assets/README/Screenshot_map_exit_open.png)  
+![exemple2](./assets/README/Screenshot_map_labyrinth.png)  
+![exemple3](./assets/README/Screenshot_map_big.png)  
 
 <a id="directories-structure"></a>
 ## 📂 Directories structure
@@ -107,6 +107,17 @@ Exemple of a map `.ber`:
  ┣ Makefile
  ┗ README.md
 ```
+
+---
+
+<a id="ressources"></a>
+## 🔗 Ressources
+
+* [42](42.fr)
+* [MinilibX](https://github.com/42Paris/minilibx-linux)
+* [42 Docs - MinilibX](https://harm-smits.github.io/42docs/libs/minilibx)
+
+---
 
 <a id="author"></a>
 ## 👤 Author
